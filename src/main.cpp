@@ -41,8 +41,15 @@ void tearDown(void) {}
 // ============================================================
 // Main Test Runner
 // ============================================================
+
+union LegacyData {
+    int i;
+    double d;
+    char *cPtr;
+};
 int main(void) 
 {
+    
     UNITY_BEGIN();
 
     // ========== STAGE 0 ==========
