@@ -42,14 +42,16 @@ void tearDown(void) {}
 // Main Test Runner
 // ============================================================
 
-union LegacyData {
-    int i;
-    double d;
-    char *cPtr;
-};
+// union LegacyData { // example of union
+//     int i;
+//     double d;
+//     char *cPtr;
+// };
+
+
 int main(void) 
 {
-    
+
     UNITY_BEGIN();
 
     // ========== STAGE 0 ==========

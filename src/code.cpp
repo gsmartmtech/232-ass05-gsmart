@@ -24,8 +24,24 @@ std::string AUTHOR_AUTHORSHIP = "I acknowledge that I have worked on this assign
 /// default -> "unknown"
 
 std::string printLegacyData(LegacyData data, char type) {
-    // TODO: Implement switch/case for 'i', 'd', 'c' and default case
-    return "";
+    std::string result = "unknown";
+
+    if (type == 'i')
+    {
+        result = std::format("{}", data.i);
+    }
+    if (type == 'c')
+    {
+        if (data.cPtr != NULL)
+        {
+            result = std::format("{}", data.cPtr);
+        }
+    }
+    if (type == 'd')
+    {
+        result = std::format("{}", data.d);
+    }
+    return result;
 }
 
 // ============================================================
@@ -34,7 +50,9 @@ std::string printLegacyData(LegacyData data, char type) {
 
 /// Initializes a structNode with value, type indicator, and nullptr nextPtr.
 void initStructNode(structNode* nPtr, LegacyData val, char type) {
-    // TODO: Check if nPtr is nullptr before assigning fields
+    nPtr->nextPtr = nullptr;
+    nPtr->value = val;
+    nPtr->typeData = type;
 }
 
 /// Dynamically allocates two structNodes.
