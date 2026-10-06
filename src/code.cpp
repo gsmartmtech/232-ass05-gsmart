@@ -150,9 +150,9 @@ LinkedList::~LinkedList() {
 
 void LinkedList::destroyList() {
     // TODO: Iterate through list, delete all nodes, and reset counter to 0
-    for (int i = 0; i < this->counter; i++)
+    while (this->counter != 0)
     {
-
+        deleteFirst();
     }
 }
 
@@ -161,8 +161,8 @@ int LinkedList::addFirst(classNodeVariant* newNodePtr) {
     // Return -1 if newNodePtr is nullptr, 0 on success
     if (newNodePtr != nullptr)
     {
-        newNodePtr->nextPtr = this->headPtr->nextPtr;
-        this->headPtr->nextPtr = newNodePtr;
+        newNodePtr->nextPtr = this->headPtr;
+        this->headPtr = newNodePtr;
         this->counter += 1;
         return 0;
     }
@@ -177,6 +177,12 @@ int LinkedList::addFirst(classNodeVariant* newNodePtr) {
     // Return -1 if newNodePtr is nullptr, 0 on success
     if (newNodePtr != nullptr)
     {
+        if (this->headPtr == nullptr)
+        {
+            this->headPtr = newNodePtr;
+            this->counter += 1;
+            return 0;
+        }
         classNodeVariant* currentPtr = this->headPtr;
         while (currentPtr->nextPtr != nullptr)
         {
@@ -266,12 +272,26 @@ int LinkedList::printList() {
     classNodeVariant* currentPtr = this->headPtr;
     if (this->headPtr->nextPtr != nullptr)
     {
+        int index = 0;
         while (currentPtr->nextPtr != nullptr)
         {
             currentPtr = currentPtr->nextPtr;
-            std::format(":. \n", currentPtr->value);
-            //std::cout << currentPtr->value << std::endl;
+            //std::cout << std::get<index>(this) << std::endl;
+            index += 1;
+            //std::format("{} \n", currentPtr->value);
+            //std::cout << currentPtr->value;
+
+
+            std::variant<int, double, std::string> myVariant;
+            myVariant = 5;
+
+            if (holds_alternative<int>(myVariant)) {
+                std::cout << get<int>(myVariant) << std::endl;
+            }
+
+
         }
+        return 0;
     }
     else
     {

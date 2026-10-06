@@ -76,7 +76,10 @@ void test_createTwoClassNodes_links_correctly(void)
 /// Clean up allocated memory.
 void test_createTwoTemplateNodes_links_correctly(void) 
 {
-    TEST_ASSERT_TRUE_MESSAGE(0, "TODO: Implement this test");
+    classNodeT headPtr = createTwoTemplateNodes();
+
+    TEST_ASSERT_EQUAL(5, headPtr.value->value);
+    TEST_ASSERT_EQUAL(3, headPtr.value->nextPtr->value);
 }
 
 // ============================================================
@@ -87,14 +90,47 @@ void test_createTwoTemplateNodes_links_correctly(void)
 /// Verify listLength() returns 2 after insertions.
 void test_linkedList_addFirst_updates_counter(void) 
 {
-    TEST_ASSERT_TRUE_MESSAGE(0, "TODO: Implement this test");
+    // used geeks for geeks as a reference on variants
+
+    std::variant<int, double, std::string> myVariant;
+    myVariant = 5;
+
+    if (holds_alternative<int>(myVariant)) {
+        std::cout << get<int>(myVariant) << std::endl;
+    }
+
+    // classNodeVariant are not getting initailized with value and can't be updated to include it
+
+    LinkedList *headPtr = new LinkedList();
+    classNodeVariant *nodeA = new classNodeVariant(myVariant);
+    classNodeVariant *nodeB = new classNodeVariant(4);
+
+
+    headPtr->addFirst(nodeA);
+    headPtr->addFirst(nodeB);
+    int result = headPtr->listLength();
+    TEST_ASSERT_EQUAL(2, result);
 }
 
 /// Create a LinkedList. Add nodes (10, then 20) using addLast.
 /// Capture std::cout and verify elements appear in order ("10" before "20").
 void test_linkedList_addLast_places_at_end(void) 
 {
-    TEST_ASSERT_TRUE_MESSAGE(0, "TODO: Implement this test");
+    LinkedList *headPtr = new LinkedList();
+    classNodeVariant *nodeA = new classNodeVariant(10);
+    classNodeVariant *nodeB = new classNodeVariant(20);
+    
+    headPtr->addLast(nodeA);
+    headPtr->addLast(nodeB);
+
+    // referenced geeksforgeeks page on sstream
+
+    int num;              
+    // Create a stringstream object initialized with 'str'
+    //std::stringstream ss(headPtr.str());                     
+    // Extract an integer from the stringstream and store it in 'num'
+    //ss >> num;            
+    std::cout << "Integer: " << num << std::endl;
 }
 
 /// Create a LinkedList with an int, double, and string.
