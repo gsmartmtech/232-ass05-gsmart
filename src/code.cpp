@@ -206,12 +206,13 @@ int LinkedList::addFirst(classNodeVariant* newNodePtr) {
         classNodeVariant *firstPtr = this->headPtr->nextPtr;
         this->headPtr->nextPtr = this->headPtr->nextPtr->nextPtr;
         free(firstPtr);
-        firstPtr->nextPtr = nullptr;
+        //firstPtr->nextPtr = nullptr;
         this->counter -= 1;
         return 0;
     }
     else
     {
+        this->counter = 0;
         return -1;
     }
 }
@@ -247,8 +248,6 @@ int LinkedList::deleteValue(ModernData targetValue) {
     {
         while (currentPtr->nextPtr->nextPtr != nullptr)
         {
-            currentPtr = currentPtr->nextPtr;
-
             if (currentPtr->nextPtr->value == targetValue)
             {
                 classNodeVariant* valuePtr = currentPtr->nextPtr;
@@ -257,12 +256,10 @@ int LinkedList::deleteValue(ModernData targetValue) {
                 this->counter -= 1;
                 return 0;
             }
+            currentPtr = currentPtr->nextPtr;
         }
     }
-    else
-    {
-        return -1;
-    }
+    return -1;
 }
 
 int LinkedList::printList() {
@@ -272,23 +269,24 @@ int LinkedList::printList() {
     classNodeVariant* currentPtr = this->headPtr;
     if (this->headPtr->nextPtr != nullptr)
     {
-        int index = 0;
-        while (currentPtr->nextPtr != nullptr)
+        while (currentPtr != nullptr)
         {
-            currentPtr = currentPtr->nextPtr;
-            //std::cout << std::get<index>(this) << std::endl;
-            index += 1;
-            //std::format("{} \n", currentPtr->value);
-            //std::cout << currentPtr->value;
-
-
             std::variant<int, double, std::string> myVariant;
-            myVariant = 5;
+            myVariant = currentPtr->value;
 
             if (holds_alternative<int>(myVariant)) {
                 std::cout << get<int>(myVariant) << std::endl;
-            }
+            } // print for int
 
+            if (holds_alternative<double>(myVariant)) {
+                std::cout << get<double>(myVariant) << std::endl;
+            } // print for double
+
+            if (holds_alternative<std::string>(myVariant)) {
+                std::cout << get<std::string>(myVariant) << std::endl;
+            } // print for string
+
+            currentPtr = currentPtr->nextPtr;
 
         }
         return 0;
