@@ -283,7 +283,7 @@ int LinkedList::printList() {
             } // print for double
 
             if (holds_alternative<std::string>(myVariant)) {
-                std::cout << get<std::string>(myVariant) << std::endl;
+                std::cout << std::endl << get<std::string>(myVariant) << std::endl;
             } // print for string
 
             currentPtr = currentPtr->nextPtr;
