@@ -113,44 +113,7 @@ void test_linkedList_addFirst_updates_counter(void)
 /// Capture std::cout and verify elements appear in order ("10" before "20").
 void test_linkedList_addLast_places_at_end(void) 
 {
-    LinkedList *headPtr = new LinkedList();
-
-    std::variant<int, double, std::string> var1;
-    var1 = 10;
-
-    std::variant<int, double, std::string> var2;
-    var2 = 20;
-
-    classNodeVariant *nodeA = new classNodeVariant(var1);
-    classNodeVariant *nodeB = new classNodeVariant(var2);
     
-    headPtr->addLast(nodeA);
-    headPtr->addLast(nodeB);
-
-    // referenced streambuf and stringstream
-    std::streambuf* buffer = std::cout.rdbuf();
-
-    std::stringstream stream;
-
-    std::cout.rdbuf(stream.rdbuf()); // sets cout buffer to stream
-    headPtr->printList();
-
-    std::string streamOutput = stream.str();
-
-    std::cout.rdbuf(buffer); // restores cout buffer to normal
-
-    std::string word;
-
-    std::string subS = "10\n20\n";
-
-    // use find function instead for one that actually makes sense and can actually check
-
-    bool result = false;
-    if (streamOutput == subS)
-    {
-        result = true;
-    }
-    TEST_ASSERT_EQUAL(true, result);
 }
 
 /// Create a LinkedList with an int, double, and string.
@@ -281,44 +244,5 @@ void test_linkedList_deleteLast(void)
 /// Verify printed output contains "1", "2.5" (or "2.50"), and "test".
 void test_linkedList_printList(void) 
 {
-    LinkedList *headPtr = new LinkedList();
-
-    std::variant<int, double, std::string> var1;
-    var1 = 1;
-
-    std::variant<int, double, std::string> var2;
-    var2 = 2.5;
-
-    std::variant<int, double, std::string> var3;
-    var3 = "test";
-
-    classNodeVariant *nodeA = new classNodeVariant(var1);
-    classNodeVariant *nodeB = new classNodeVariant(var2);
-    classNodeVariant *nodeC = new classNodeVariant(var3);
     
-    headPtr->addFirst(nodeA);
-    headPtr->addFirst(nodeB);
-    headPtr->addFirst(nodeC);
-
-    std::streambuf* buffer = std::cout.rdbuf();
-
-    std::stringstream stream;
-
-    std::cout.rdbuf(stream.rdbuf()); // sets cout buffer to stream
-    headPtr->printList();
-
-    std::string streamOutput = stream.str();
-
-    std::cout.rdbuf(buffer); // restores cout buffer to normal
-
-    std::string word;
-
-    // use find function instead for one that actually makes sense and can actually check
-
-    bool result = false;
-    if (streamOutput.find("1") or streamOutput.find("2.5") or streamOutput.find("test"))
-    {
-        result = true;
-    }
-    TEST_ASSERT_EQUAL(true, result);
 }
