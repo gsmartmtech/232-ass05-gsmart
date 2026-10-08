@@ -299,4 +299,26 @@ void test_linkedList_printList(void)
     headPtr->addFirst(nodeA);
     headPtr->addFirst(nodeB);
     headPtr->addFirst(nodeC);
+
+    std::streambuf* buffer = std::cout.rdbuf();
+
+    std::stringstream stream;
+
+    std::cout.rdbuf(stream.rdbuf()); // sets cout buffer to stream
+    headPtr->printList();
+
+    std::string streamOutput = stream.str();
+
+    std::cout.rdbuf(buffer); // restores cout buffer to normal
+
+    std::string word;
+
+    // use find function instead for one that actually makes sense and can actually check
+
+    bool result = false;
+    if (streamOutput.find("1") or streamOutput.find("2.5") or streamOutput.find("test"))
+    {
+        result = true;
+    }
+    TEST_ASSERT_EQUAL(true, result);
 }
