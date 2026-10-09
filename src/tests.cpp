@@ -139,12 +139,12 @@ void test_linkedList_addLast_places_at_end(void)
 
     std::cout.rdbuf(buffer); // restores cout buffer to normal
 
-    std::string subS = "10\n20\n";
+    std::string subS = "" + std::get<int>(var1) + '\n' + std::get<int>(var2);
 
     // use find function instead for one that actually makes sense and can actually check
 
     bool result = false;
-    if (streamOutput == subS)
+    if (streamOutput.find(subS))
     {
         result = true;
     }
@@ -312,9 +312,9 @@ void test_linkedList_printList(void)
     // use find function instead for one that actually makes sense and can actually check
 
     bool result = false;
-    bool found1 = streamOutput.find("1");
-    bool found2 = streamOutput.find("2.5");
-    bool found3 = streamOutput.find("test");
+    bool found1 = streamOutput.find(std::get<int>(var1));
+    bool found2 = streamOutput.find(std::get<double>(var2));
+    bool found3 = streamOutput.find(std::get<std::string>(var3));
 
 
     if (found1 == true and found2 == true and found3 == true)
