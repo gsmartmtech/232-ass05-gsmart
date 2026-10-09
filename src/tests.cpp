@@ -107,6 +107,7 @@ void test_linkedList_addFirst_updates_counter(void)
     headPtr->addFirst(nodeB);
     int result = headPtr->listLength();
     TEST_ASSERT_EQUAL(2, result);
+    headPtr->~LinkedList();
 }
 
 /// Create a LinkedList. Add nodes (10, then 20) using addLast.
@@ -149,6 +150,7 @@ void test_linkedList_addLast_places_at_end(void)
         result = true;
     }
     TEST_ASSERT_EQUAL(true, result);
+    headPtr->~LinkedList();
 }
 
 /// Create a LinkedList with an int, double, and string.
@@ -181,6 +183,7 @@ void test_linkedList_deleteValue_removes_variant(void)
 
     TEST_ASSERT_EQUAL(2, listLength);
     TEST_ASSERT_EQUAL(-1, headPtr->deleteValue(var2));
+    headPtr->~LinkedList();
 
 }
 /// Create a LinkedList and insert three nodes.
@@ -210,6 +213,7 @@ void test_linkedList_destroyList_clears_all(void)
     headPtr->destroyList();
 
     TEST_ASSERT_EQUAL(0, headPtr->listLength());
+    headPtr->~LinkedList();
 }
 
 /// Create a LinkedList with nodes (10, 20, 30).
@@ -241,6 +245,7 @@ void test_linkedList_deleteFirst(void)
 
     TEST_ASSERT_EQUAL(0, result);
     TEST_ASSERT_EQUAL(2, lisLength);
+    headPtr->~LinkedList();
 }
 
 /// Create a LinkedList with nodes (10, 20, 30).
@@ -272,6 +277,7 @@ void test_linkedList_deleteLast(void)
 
     TEST_ASSERT_EQUAL(0, result);
     TEST_ASSERT_EQUAL(2, lisLength);
+    headPtr->~LinkedList();
 }
 
 /// Create a LinkedList with nodes (1, 2.5, "test").
@@ -322,4 +328,5 @@ void test_linkedList_printList(void)
         result = true;
     }
     TEST_ASSERT_EQUAL(true, result);
+    headPtr->~LinkedList();
 }
