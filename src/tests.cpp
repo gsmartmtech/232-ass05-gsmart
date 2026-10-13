@@ -68,6 +68,7 @@ void test_createTwoClassNodes_links_correctly(void)
     TEST_ASSERT_EQUAL('i', nodeHead->typeData);
     TEST_ASSERT_EQUAL(3.14,nodeHead->nextPtr->value.d);
     TEST_ASSERT_EQUAL('d', nodeHead->nextPtr->typeData);
+    free(nodeHead);
     std::cerr << "test_createTwoClassNodes_links_correctly(void)" << std::endl;
 }
 
@@ -84,6 +85,7 @@ void test_createTwoTemplateNodes_links_correctly(void)
 
     TEST_ASSERT_EQUAL(5, headPtr.value->value);
     TEST_ASSERT_EQUAL(3, headPtr.value->nextPtr->value);
+    free(nodeHead);
     std::cerr << "test_createTwoTemplateNodes_links_correctly(void)" << std::endl;
 }
 
