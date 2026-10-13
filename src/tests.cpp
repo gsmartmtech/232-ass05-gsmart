@@ -85,7 +85,7 @@ void test_createTwoTemplateNodes_links_correctly(void)
 
     TEST_ASSERT_EQUAL(5, headPtr.value->value);
     TEST_ASSERT_EQUAL(3, headPtr.value->nextPtr->value);
-    free(nodeHead);
+    free(headPtr.value);
     std::cerr << "test_createTwoTemplateNodes_links_correctly(void)" << std::endl;
 }
 
