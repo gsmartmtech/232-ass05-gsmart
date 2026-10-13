@@ -15,6 +15,7 @@
 /// Verify the returned string matches "42".
 void test_printLegacyData_int(void) 
 {
+    char check0 = 'stage 0 reached';
     LegacyData val;
     val.i = 42;
     std::string returnedString = printLegacyData(val, 'i');
@@ -44,6 +45,7 @@ void test_printLegacyData_double(void)
 /// Clean up allocated memory.
 void test_createTwoStructNodes_links_correctly(void) 
 {
+    char check1 = 'stage 1 reached';
     structNode *nodeHead = createTwoStructNodes();
 
     TEST_ASSERT_EQUAL(5, nodeHead->value.i);
@@ -62,6 +64,7 @@ void test_createTwoStructNodes_links_correctly(void)
 /// Clean up allocated memory.
 void test_createTwoClassNodes_links_correctly(void) 
 {
+    char check2 = 'stage 2 reached';
     classNode *nodeHead = createTwoClassNodes();
 
     TEST_ASSERT_EQUAL(5, nodeHead->value.i);
@@ -81,6 +84,7 @@ void test_createTwoClassNodes_links_correctly(void)
 /// Clean up allocated memory.
 void test_createTwoTemplateNodes_links_correctly(void) 
 {
+    char check3 = 'stage 3 reached';
     classNodeT headPtr = createTwoTemplateNodes();
 
     TEST_ASSERT_EQUAL(5, headPtr.value->value);
@@ -97,6 +101,7 @@ void test_createTwoTemplateNodes_links_correctly(void)
 /// Verify listLength() returns 2 after insertions.
 void test_linkedList_addFirst_updates_counter(void) 
 {
+    char check4 = 'stage 4 reached';
     // used geeks for geeks as a reference to better understand variants
 
     std::variant<int, double, std::string> var1;
@@ -115,7 +120,6 @@ void test_linkedList_addFirst_updates_counter(void)
     int result = headPtr->listLength();
     TEST_ASSERT_EQUAL(2, result);
     headPtr->~LinkedList();
-    std::cerr << "test_linkedList_addFirst_updates_counter(void)" << std::endl;
 }
 
 /// Create a LinkedList. Add nodes (10, then 20) using addLast.
@@ -159,7 +163,6 @@ void test_linkedList_addLast_places_at_end(void)
     }
     TEST_ASSERT_EQUAL(true, result);
     headPtr->~LinkedList();
-    std::cerr << "test_linkedList_addLast_places_at_end(void)" << std::endl;
 }
 
 /// Create a LinkedList with an int, double, and string.
@@ -193,7 +196,6 @@ void test_linkedList_deleteValue_removes_variant(void)
     TEST_ASSERT_EQUAL(2, listLength);
     TEST_ASSERT_EQUAL(-1, headPtr->deleteValue(var2));
     headPtr->~LinkedList();
-    std::cerr << "test_linkedList_deleteValue_removes_variant(void)" << std::endl;
 }
 /// Create a LinkedList and insert three nodes.
 /// Call destroyList().
@@ -223,7 +225,6 @@ void test_linkedList_destroyList_clears_all(void)
 
     TEST_ASSERT_EQUAL(0, headPtr->listLength());
     headPtr->~LinkedList();
-    std::cerr << "test_linkedList_destroyList_clears_all(void)" << std::endl;
 }
 
 /// Create a LinkedList with nodes (10, 20, 30).
@@ -256,7 +257,6 @@ void test_linkedList_deleteFirst(void)
     TEST_ASSERT_EQUAL(0, result);
     TEST_ASSERT_EQUAL(2, lisLength);
     headPtr->~LinkedList();
-    std::cerr << "test_linkedList_deleteFirst(void)" << std::endl;
 }
 
 /// Create a LinkedList with nodes (10, 20, 30).
@@ -289,7 +289,6 @@ void test_linkedList_deleteLast(void)
     TEST_ASSERT_EQUAL(0, result);
     TEST_ASSERT_EQUAL(2, lisLength);
     headPtr->~LinkedList();
-    std::cerr << "test_linkedList_deleteLast(void)" << std::endl;
 }
 
 /// Create a LinkedList with nodes (1, 2.5, "test").
@@ -341,5 +340,4 @@ void test_linkedList_printList(void)
     }
     TEST_ASSERT_EQUAL(true, result);
     headPtr->~LinkedList();
-    std::cerr << "test_linkedList_printList(void)" << std::endl;
 }
