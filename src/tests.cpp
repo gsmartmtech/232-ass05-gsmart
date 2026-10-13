@@ -126,6 +126,7 @@ void test_linkedList_addFirst_updates_counter(void)
 /// Capture std::cout and verify elements appear in order ("10" before "20").
 void test_linkedList_addLast_places_at_end(void) 
 {
+    char check4_1 = 'first print of stage 4 reached';
     LinkedList *headPtr = new LinkedList();
 
     std::variant<int, double, std::string> var1;
@@ -170,6 +171,7 @@ void test_linkedList_addLast_places_at_end(void)
 /// Verify list length decreases to 2 and second call returns -1.
 void test_linkedList_deleteValue_removes_variant(void) 
 {
+    char check4_2 = 'first print of stage 4 passed';
     LinkedList *headPtr = new LinkedList();
 
     std::variant<int, double, std::string> var1;
@@ -296,6 +298,7 @@ void test_linkedList_deleteLast(void)
 /// Verify printed output contains "1", "2.5" (or "2.50"), and "test".
 void test_linkedList_printList(void) 
 {
+    char check4_3 = 'last test in stage 4 reached';
     LinkedList *headPtr = new LinkedList();
 
     std::variant<int, double, std::string> var1;
