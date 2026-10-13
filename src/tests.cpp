@@ -20,6 +20,7 @@ void test_printLegacyData_int(void)
     std::string returnedString = printLegacyData(val, 'i');
     std::string check = "42";
     TEST_ASSERT_EQUAL_STRING(check.c_str(), returnedString.c_str());
+    std::cerr << "test_printLegacyData_int(void)" << std::endl;
 }
 
 /// Create a LegacyData union with a double (3.14). Call printLegacyData.
@@ -31,6 +32,7 @@ void test_printLegacyData_double(void)
     std::string returnedString = printLegacyData(val, 'd');
     std::string check = "3.14";
     TEST_ASSERT_EQUAL_STRING(check.c_str(), returnedString.c_str());
+    std::cerr << "test_printLegacyData_double(void)" << std::endl;
 }
 
 // ============================================================
@@ -48,6 +50,7 @@ void test_createTwoStructNodes_links_correctly(void)
     TEST_ASSERT_EQUAL('i', nodeHead->typeData);
     TEST_ASSERT_EQUAL(3.14,nodeHead->nextPtr->value.d);
     TEST_ASSERT_EQUAL('d', nodeHead->nextPtr->typeData);
+    std::cerr << "test_createTwoStructNodes_links_correctly(void)" << std::endl;
 }
 
 // ============================================================
@@ -65,6 +68,7 @@ void test_createTwoClassNodes_links_correctly(void)
     TEST_ASSERT_EQUAL('i', nodeHead->typeData);
     TEST_ASSERT_EQUAL(3.14,nodeHead->nextPtr->value.d);
     TEST_ASSERT_EQUAL('d', nodeHead->nextPtr->typeData);
+    std::cerr << "test_createTwoClassNodes_links_correctly(void)" << std::endl;
 }
 
 // ============================================================
@@ -80,6 +84,7 @@ void test_createTwoTemplateNodes_links_correctly(void)
 
     TEST_ASSERT_EQUAL(5, headPtr.value->value);
     TEST_ASSERT_EQUAL(3, headPtr.value->nextPtr->value);
+    std::cerr << "test_createTwoTemplateNodes_links_correctly(void)" << std::endl;
 }
 
 // ============================================================
@@ -108,6 +113,7 @@ void test_linkedList_addFirst_updates_counter(void)
     int result = headPtr->listLength();
     TEST_ASSERT_EQUAL(2, result);
     headPtr->~LinkedList();
+    std::cerr << "test_linkedList_addFirst_updates_counter(void)" << std::endl;
 }
 
 /// Create a LinkedList. Add nodes (10, then 20) using addLast.
@@ -151,6 +157,7 @@ void test_linkedList_addLast_places_at_end(void)
     }
     TEST_ASSERT_EQUAL(true, result);
     headPtr->~LinkedList();
+    std::cerr << "test_linkedList_addLast_places_at_end(void)" << std::endl;
 }
 
 /// Create a LinkedList with an int, double, and string.
@@ -184,7 +191,7 @@ void test_linkedList_deleteValue_removes_variant(void)
     TEST_ASSERT_EQUAL(2, listLength);
     TEST_ASSERT_EQUAL(-1, headPtr->deleteValue(var2));
     headPtr->~LinkedList();
-
+    std::cerr << "test_linkedList_deleteValue_removes_variant(void)" << std::endl;
 }
 /// Create a LinkedList and insert three nodes.
 /// Call destroyList().
@@ -214,6 +221,7 @@ void test_linkedList_destroyList_clears_all(void)
 
     TEST_ASSERT_EQUAL(0, headPtr->listLength());
     headPtr->~LinkedList();
+    std::cerr << "test_linkedList_destroyList_clears_all(void)" << std::endl;
 }
 
 /// Create a LinkedList with nodes (10, 20, 30).
@@ -246,6 +254,7 @@ void test_linkedList_deleteFirst(void)
     TEST_ASSERT_EQUAL(0, result);
     TEST_ASSERT_EQUAL(2, lisLength);
     headPtr->~LinkedList();
+    std::cerr << "test_linkedList_deleteFirst(void)" << std::endl;
 }
 
 /// Create a LinkedList with nodes (10, 20, 30).
@@ -278,6 +287,7 @@ void test_linkedList_deleteLast(void)
     TEST_ASSERT_EQUAL(0, result);
     TEST_ASSERT_EQUAL(2, lisLength);
     headPtr->~LinkedList();
+    std::cerr << "test_linkedList_deleteLast(void)" << std::endl;
 }
 
 /// Create a LinkedList with nodes (1, 2.5, "test").
@@ -329,4 +339,5 @@ void test_linkedList_printList(void)
     }
     TEST_ASSERT_EQUAL(true, result);
     headPtr->~LinkedList();
+    std::cerr << "test_linkedList_printList(void)" << std::endl;
 }
