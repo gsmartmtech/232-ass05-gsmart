@@ -15,13 +15,13 @@
 /// Verify the returned string matches "42".
 void test_printLegacyData_int(void) 
 {
-    char check0 = 'stage 0 reached';
+    //char check0 = 'stage 0 reached';
     LegacyData val;
     val.i = 42;
     std::string returnedString = printLegacyData(val, 'i');
     std::string check = "42";
     TEST_ASSERT_EQUAL_STRING(check.c_str(), returnedString.c_str());
-    std::cerr << "test_printLegacyData_int(void)" << std::endl;
+    //std::cerr << "test_printLegacyData_int(void)" << std::endl;
 }
 
 /// Create a LegacyData union with a double (3.14). Call printLegacyData.
@@ -33,7 +33,7 @@ void test_printLegacyData_double(void)
     std::string returnedString = printLegacyData(val, 'd');
     std::string check = "3.14";
     TEST_ASSERT_EQUAL_STRING(check.c_str(), returnedString.c_str());
-    std::cerr << "test_printLegacyData_double(void)" << std::endl;
+    //std::cerr << "test_printLegacyData_double(void)" << std::endl;
 }
 
 // ============================================================
@@ -45,14 +45,14 @@ void test_printLegacyData_double(void)
 /// Clean up allocated memory.
 void test_createTwoStructNodes_links_correctly(void) 
 {
-    char check1 = 'stage 1 reached';
+    //char check1 = 'stage 1 reached';
     structNode *nodeHead = createTwoStructNodes();
 
     TEST_ASSERT_EQUAL(5, nodeHead->value.i);
     TEST_ASSERT_EQUAL('i', nodeHead->typeData);
     TEST_ASSERT_EQUAL(3.14,nodeHead->nextPtr->value.d);
     TEST_ASSERT_EQUAL('d', nodeHead->nextPtr->typeData);
-    std::cerr << "test_createTwoStructNodes_links_correctly(void)" << std::endl;
+    //std::cerr << "test_createTwoStructNodes_links_correctly(void)" << std::endl;
 }
 
 // ============================================================
@@ -64,7 +64,7 @@ void test_createTwoStructNodes_links_correctly(void)
 /// Clean up allocated memory.
 void test_createTwoClassNodes_links_correctly(void) 
 {
-    char check2 = 'stage 2 reached';
+    //char check2 = 'stage 2 reached';
     classNode *nodeHead = createTwoClassNodes();
 
     TEST_ASSERT_EQUAL(5, nodeHead->value.i);
@@ -72,7 +72,7 @@ void test_createTwoClassNodes_links_correctly(void)
     TEST_ASSERT_EQUAL(3.14,nodeHead->nextPtr->value.d);
     TEST_ASSERT_EQUAL('d', nodeHead->nextPtr->typeData);
     free(nodeHead);
-    std::cerr << "test_createTwoClassNodes_links_correctly(void)" << std::endl;
+    //std::cerr << "test_createTwoClassNodes_links_correctly(void)" << std::endl;
 }
 
 // ============================================================
@@ -84,13 +84,13 @@ void test_createTwoClassNodes_links_correctly(void)
 /// Clean up allocated memory.
 void test_createTwoTemplateNodes_links_correctly(void) 
 {
-    char check3 = 'stage 3 reached';
+    //char check3 = 'stage 3 reached';
     classNodeT headPtr = createTwoTemplateNodes();
 
     TEST_ASSERT_EQUAL(5, headPtr.value->value);
     TEST_ASSERT_EQUAL(3, headPtr.value->nextPtr->value);
     free(headPtr.value);
-    std::cerr << "test_createTwoTemplateNodes_links_correctly(void)" << std::endl;
+    //std::cerr << "test_createTwoTemplateNodes_links_correctly(void)" << std::endl;
 }
 
 // ============================================================
@@ -101,7 +101,7 @@ void test_createTwoTemplateNodes_links_correctly(void)
 /// Verify listLength() returns 2 after insertions.
 void test_linkedList_addFirst_updates_counter(void) 
 {
-    char check4 = 'stage 4 reached';
+    //char check4 = 'stage 4 reached';
     // used geeks for geeks as a reference to better understand variants
 
     std::variant<int, double, std::string> var1;
@@ -126,7 +126,7 @@ void test_linkedList_addFirst_updates_counter(void)
 /// Capture std::cout and verify elements appear in order ("10" before "20").
 void test_linkedList_addLast_places_at_end(void) 
 {
-    char check4_1 = 'first print of stage 4 reached';
+    //char check4_1 = 'first print of stage 4 reached';
     LinkedList *headPtr = new LinkedList();
 
     std::variant<int, double, std::string> var1;
@@ -171,7 +171,7 @@ void test_linkedList_addLast_places_at_end(void)
 /// Verify list length decreases to 2 and second call returns -1.
 void test_linkedList_deleteValue_removes_variant(void) 
 {
-    char check4_2 = 'first print of stage 4 passed';
+    //char check4_2 = 'first print of stage 4 passed';
     LinkedList *headPtr = new LinkedList();
 
     std::variant<int, double, std::string> var1;
@@ -298,7 +298,7 @@ void test_linkedList_deleteLast(void)
 /// Verify printed output contains "1", "2.5" (or "2.50"), and "test".
 void test_linkedList_printList(void) 
 {
-    char check4_3 = 'last test in stage 4 reached';
+    //char check4_3 = 'last test in stage 4 reached';
     LinkedList *headPtr = new LinkedList();
 
     std::variant<int, double, std::string> var1;
