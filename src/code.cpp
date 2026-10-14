@@ -172,7 +172,7 @@ int LinkedList::addFirst(classNodeVariant* newNodePtr) {
     }
 }
 
- int LinkedList::addLast(classNodeVariant* newNodePtr) {
+int LinkedList::addLast(classNodeVariant* newNodePtr) {
     // TODO: Append node to the end of list, increment counter
     // Return -1 if newNodePtr is nullptr, 0 on success
     if (newNodePtr != nullptr)
@@ -198,7 +198,7 @@ int LinkedList::addFirst(classNodeVariant* newNodePtr) {
     }
 }
 
- int LinkedList::deleteFirst() {
+int LinkedList::deleteFirst() {
     // TODO: Delete first node, update headPtr, decrement counter
     // Return -1 if list is empty, 0 on success
     if (this->headPtr->nextPtr != nullptr)
@@ -217,7 +217,7 @@ int LinkedList::addFirst(classNodeVariant* newNodePtr) {
     }
 }
 
- int LinkedList::deleteLast() {
+int LinkedList::deleteLast() {
     // TODO: Find second-to-last node, delete last node, decrement counter
     // Return -1 if list is empty, 0 on success
     classNodeVariant* currentPtr = this->headPtr;
