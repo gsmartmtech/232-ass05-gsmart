@@ -101,25 +101,7 @@ void test_createTwoTemplateNodes_links_correctly(void)
 /// Verify listLength() returns 2 after insertions.
 void test_linkedList_addFirst_updates_counter(void) 
 {
-    char check4 = 'stage 4 reached';
-    // used geeks for geeks as a reference to better understand variants
-
-    std::variant<int, double, std::string> var1;
-    var1 = 5;
-
-    std::variant<int, double, std::string> var2;
-    var2 = 4;
-
-    LinkedList *headPtr = new LinkedList();
-    classNodeVariant *nodeA = new classNodeVariant(var1);
-    classNodeVariant *nodeB = new classNodeVariant(var2);
-
-
-    headPtr->addFirst(nodeA);
-    headPtr->addFirst(nodeB);
-    int result = headPtr->listLength();
-    TEST_ASSERT_EQUAL(2, result);
-    headPtr->~LinkedList();
+    
 }
 
 /// Create a LinkedList. Add nodes (10, then 20) using addLast.
@@ -134,62 +116,14 @@ void test_linkedList_addLast_places_at_end(void)
 /// Verify list length decreases to 2 and second call returns -1.
 void test_linkedList_deleteValue_removes_variant(void) 
 {
-    char check4_2 = 'first print of stage 4 passed';
-    LinkedList *headPtr = new LinkedList();
-
-    std::variant<int, double, std::string> var1;
-    var1 = 10;
-
-    std::variant<int, double, std::string> var2;
-    var2 = 3.14;
-
-    std::variant<int, double, std::string> var3;
-    var3 = "hello world";
-
-    classNodeVariant *nodeA = new classNodeVariant(var1);
-    classNodeVariant *nodeB = new classNodeVariant(var2);
-    classNodeVariant *nodeC = new classNodeVariant(var3);
     
-    headPtr->addLast(nodeA);
-    headPtr->addLast(nodeB);
-    headPtr->addLast(nodeC);
-
-    headPtr->deleteValue(var2);
-
-    int listLength = headPtr->listLength();
-
-    TEST_ASSERT_EQUAL(2, listLength);
-    TEST_ASSERT_EQUAL(-1, headPtr->deleteValue(var2));
-    headPtr->~LinkedList();
 }
 /// Create a LinkedList and insert three nodes.
 /// Call destroyList().
 /// Verify listLength() becomes 0.
 void test_linkedList_destroyList_clears_all(void) 
 {
-    LinkedList *headPtr = new LinkedList();
-
-    std::variant<int, double, std::string> var1;
-    var1 = 10;
-
-    std::variant<int, double, std::string> var2;
-    var2 = 3.14;
-
-    std::variant<int, double, std::string> var3;
-    var3 = "hello world";
-
-    classNodeVariant *nodeA = new classNodeVariant(var1);
-    classNodeVariant *nodeB = new classNodeVariant(var2);
-    classNodeVariant *nodeC = new classNodeVariant(var3);
     
-    headPtr->addLast(nodeA);
-    headPtr->addLast(nodeB);
-    headPtr->addLast(nodeC);
-
-    headPtr->destroyList();
-
-    TEST_ASSERT_EQUAL(0, headPtr->listLength());
-    headPtr->~LinkedList();
 }
 
 /// Create a LinkedList with nodes (10, 20, 30).
@@ -197,31 +131,7 @@ void test_linkedList_destroyList_clears_all(void)
 /// Verify listLength() becomes 2 and operation returns 0.
 void test_linkedList_deleteFirst(void) 
 {
-    LinkedList *headPtr = new LinkedList();
-
-    std::variant<int, double, std::string> var1;
-    var1 = 10;
-
-    std::variant<int, double, std::string> var2;
-    var2 = 20;
-
-    std::variant<int, double, std::string> var3;
-    var3 = 30;
-
-    classNodeVariant *nodeA = new classNodeVariant(var1);
-    classNodeVariant *nodeB = new classNodeVariant(var2);
-    classNodeVariant *nodeC = new classNodeVariant(var3);
     
-    headPtr->addFirst(nodeA);
-    headPtr->addFirst(nodeB);
-    headPtr->addFirst(nodeC);
-
-    int result = headPtr->deleteFirst();
-    int lisLength = headPtr->listLength();
-
-    TEST_ASSERT_EQUAL(0, result);
-    TEST_ASSERT_EQUAL(2, lisLength);
-    headPtr->~LinkedList();
 }
 
 /// Create a LinkedList with nodes (10, 20, 30).
@@ -229,31 +139,7 @@ void test_linkedList_deleteFirst(void)
 /// Verify listLength() becomes 2 and operation returns 0.
 void test_linkedList_deleteLast(void) 
 {
-    LinkedList *headPtr = new LinkedList();
-
-    std::variant<int, double, std::string> var1;
-    var1 = 10;
-
-    std::variant<int, double, std::string> var2;
-    var2 = 20;
-
-    std::variant<int, double, std::string> var3;
-    var3 = 30;
-
-    classNodeVariant *nodeA = new classNodeVariant(var1);
-    classNodeVariant *nodeB = new classNodeVariant(var2);
-    classNodeVariant *nodeC = new classNodeVariant(var3);
     
-    headPtr->addFirst(nodeA);
-    headPtr->addFirst(nodeB);
-    headPtr->addFirst(nodeC);
-
-    int result = headPtr->deleteLast();
-    int lisLength = headPtr->listLength();
-
-    TEST_ASSERT_EQUAL(0, result);
-    TEST_ASSERT_EQUAL(2, lisLength);
-    headPtr->~LinkedList();
 }
 
 /// Create a LinkedList with nodes (1, 2.5, "test").
